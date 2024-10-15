@@ -56,7 +56,7 @@ const App = () => {
     }
     setLoading(false);
   };
-  console.log("hii", `${process.env.REACT_APP_API_URL}`);
+
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       handleQuestionSubmit();
