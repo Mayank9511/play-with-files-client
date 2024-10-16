@@ -12,8 +12,8 @@ const GetStarted = () => {
   const handleFileUpload = (event) => {
     const selectedFile = event.target.files[0];
 
-    if (selectedFile && selectedFile.size > 10 * 1024 * 1024) {
-      alert("File size exceeds the 10MB limit. Please upload a smaller file.");
+    if (selectedFile && selectedFile.size > 20 * 1024 * 1024) {
+      alert("File size exceeds the 20MB limit. Please upload a smaller file.");
       setFile(null);
       return;
     }
@@ -74,7 +74,7 @@ const GetStarted = () => {
             <div>
               <Typography variant="h8" gutterBottom>
                 Upload any file eg. pdf, text, image, audio except video (size
-                upto 10mb).
+                upto 20mb).
               </Typography>
               <input
                 accept=".pdf,.jpeg,.jpg,.png,.webp,.heic,.heif,.wav,.mp3,.aiff,.aac,.ogg,.flac,.js,.py,.txt,.html,.css,.md,.csv,.xml,.rtf"
