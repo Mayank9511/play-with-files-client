@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, TextField, CircularProgress, Typography } from "@mui/material";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import axios from "axios";
+import { Analytics } from "@vercel/analytics/react"
 
 const GetStarted = () => {
   const [file, setFile] = useState(null);
@@ -157,6 +158,7 @@ const GetStarted = () => {
           </div>
         </div>
       </div>
+      <Analytics/>
     </div>
   );
 };
