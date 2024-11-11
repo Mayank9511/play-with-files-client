@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, TextField, CircularProgress, Typography } from "@mui/material";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import axios from "axios";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 const GetStarted = () => {
   const [file, setFile] = useState(null);
@@ -146,9 +146,14 @@ const GetStarted = () => {
                 <Typography
                   variant="body1"
                   style={{ marginTop: "2rem", whiteSpace: "pre-line" }}
-                >
-                  {response}
-                </Typography>
+                  dangerouslySetInnerHTML={{
+                    __html: response
+                      .replace(/## (.*?)\n/g, "<h2>$1</h2>")
+                      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // Bold
+                      .replace(/_(.*?)_/g, "<em>$1</em>") // Italics
+                      .replace(/~~(.*?)~~/g, "<s>$1</s>"), // Strikethrough
+                  }}
+                />
               ) : (
                 <Typography variant="body1" style={{ marginTop: "2rem" }}>
                   No response yet.
@@ -158,7 +163,7 @@ const GetStarted = () => {
           </div>
         </div>
       </div>
-      <Analytics/>
+      <Analytics />
     </div>
   );
 };
